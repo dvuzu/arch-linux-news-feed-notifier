@@ -7,7 +7,7 @@ import os
 RSS_FEED_URL = "https://archlinux.org/feeds/news/"
 
 # Store the latest news ID in a local file
-STATE_FILE = "latest_news.json"
+STATE_FILE = "latest_id"
 
 # Discord webhook URL (from repository secrets)
 DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK")
@@ -17,7 +17,8 @@ def get_latest_news_id():
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE, "r") as f:
             data = json.load(f)
-            return data.get("latest_id", None)
+            if data:
+                return data.get("latest_id", None)
     return None
 
 def save_latest_news_id(latest_id):
