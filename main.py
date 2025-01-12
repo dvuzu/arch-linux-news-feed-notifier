@@ -2,7 +2,7 @@ import feedparser
 import requests
 import os
 
-# RSS feed URL for Arch Linux news
+# RSS feed URL for Arch Linux News
 RSS_FEED_URL = "https://archlinux.org/feeds/news/"
 
 # Store the latest news ID in a local file
