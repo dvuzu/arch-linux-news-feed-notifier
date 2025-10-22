@@ -42,6 +42,12 @@ def send_discord_notification(title, link):
         print(f"Failed to send notification. Status: {response.status_code}")
 
 def main():
+    # Ping Pong                                                                  
+    ping = "ping"
+    try: c = open(ping).read().strip()
+    except: c = "pong"
+    open(ping, "w").write("pong" if "ping" in c else "ping")
+    
     latest_news = fetch_arch_news()
     if not latest_news:
         print("No news found.")
@@ -60,3 +66,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
